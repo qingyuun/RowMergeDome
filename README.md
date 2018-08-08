@@ -11,6 +11,9 @@ npm install
 # Solve the installation of chromedriver failure method
 npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver
 
+#Solve npt found vue-style-loader css-loader method
+npm install sass-loader node-sass --save-dev
+
 # serve with hot reload at localhost:8080
 npm run dev
 
