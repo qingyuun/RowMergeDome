@@ -39,12 +39,17 @@
             label="操作"
             fixed="right"
             width="300">
-          <template scol="scoped">
-            <button>添加</button>
-            <button>编辑</button>
-            <el-dropdown>
-              <el-dropdown-menu>删除</el-dropdown-menu>
-              <el-dropdown-menu>查看</el-dropdown-menu>
+          <template slot-scope="scope">
+            <el-button type="text" @click="add(scope.row)">添加</el-button>
+            <el-button type="text" @click="update(scope.row)">编辑</el-button>
+            <el-dropdown v-if="scope.row.num===3">
+              <span class="el-dropdown-link">
+                更多<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item @click.native="show(scope.row)">查看</el-dropdown-item>
+                <el-dropdown-item @click.native="del(scope.row)">删除</el-dropdown-item>
+              </el-dropdown-menu>
             </el-dropdown>
           </template>
           </el-table-column>
@@ -213,6 +218,31 @@ export default {
           rowspan: sexRow,
           colspan: sexCol
         }
+      }
+    },
+    add (row) {
+      this.$message.info('您点击了添加按钮')
+      console.log(row)
+    },
+    update (row) {
+      this.$message.info('您点击率编辑按钮')
+      console.log(row)
+    },
+    show (row) {
+      this.$message.info('您点击了查看按钮')
+      console.log(row)
+    },
+    del (row) {
+      this.$message.info('您点击了删除安娜')
+      console.log(row)
+    },
+    // 指令与事件只可用其一
+    handleCommand (command) {
+      if (command === 'show') {
+        this.$message.info('查看指令' + command)
+      }
+      if (command === 'delete') {
+        this.$message.info('删除指令' + command)
       }
     }
   }
