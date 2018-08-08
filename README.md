@@ -8,6 +8,9 @@
 # install dependencies
 npm install
 
+# Solve the installation of chromedriver failure method
+npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver
+
 # serve with hot reload at localhost:8080
 npm run dev
 
